@@ -1,28 +1,37 @@
+// @flow
 import { createStore } from 'redux';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider, connect } from 'react-redux';
 
+type Props = {
+  counter: number,
+  incCounter(number): void,
+  decCounter(number): void,
+  mulCounter(number): void,
+  divCounter(number): void
+}
+
 // ActionCreator
-export const incActionCreator = (num = 1) => ({
+export const incActionCreator = (num: number = 1) => ({
   type: 'INC_COUNTER',
   num,
 });
-export const decActionCreator = (num = 1) => ({
+export const decActionCreator = (num: number = 1) => ({
   type: 'DEC_COUNTER',
   num,
 });
-export const mulActionCreator = (num = 1) => ({
+export const mulActionCreator = (num: number = 1) => ({
   type: 'MUL_COUNTER',
   num,
 });
-export const divActionCreator = (num = 1) => ({
+export const divActionCreator = (num: number = 1) => ({
   type: 'DIV_COUNTER',
   num,
 });
 
 // Reducer
-const myReducer = (state = { counter: 0 }, action) => {
+const math = (state = { counter: 0 }, action) => {
   switch (action.type) {
     case 'INC_COUNTER':
       return Object.assign({}, state, {
@@ -46,13 +55,13 @@ const myReducer = (state = { counter: 0 }, action) => {
 };
 
 // store
-const myStore = createStore(myReducer);
+const myStore = createStore(math);
 myStore.subscribe(() => {
   console.log('stateが変更されました');
   console.log(myStore.getState());
 });
 
-const App = props => (
+const App = (props: Props) => (
   <div>
     <p>原罪の数値: { props.counter }</p>
     <button onClick={() => { props.incCounter(1); }}>加算</button>
