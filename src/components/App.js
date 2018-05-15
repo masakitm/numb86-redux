@@ -3,10 +3,10 @@ import React from 'react';
 
 type Props = {
   counter: number,
-  incCounter(): void,
-  decCounter(): void,
-  mulCounter(): void,
-  divCounter(): void
+  incCounter(num: number): void,
+  decCounter(num: number): void,
+  mulCounter(num: number): void,
+  divCounter(num: number): void
 }
 
 // App

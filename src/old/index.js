@@ -6,10 +6,10 @@ import { Provider, connect } from 'react-redux';
 
 type Props = {
   counter: number,
-  incCounter(number): void,
-  decCounter(number): void,
-  mulCounter(number): void,
-  divCounter(number): void
+  incCounter(num: number): void,
+  decCounter(num: number): void,
+  mulCounter(num: number): void,
+  divCounter(num: number): void
 }
 
 // ActionCreator
